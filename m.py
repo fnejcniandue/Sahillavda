@@ -4,9 +4,6 @@ import telebot
 import subprocess
 import datetime
 import os
-
-from keep_alive import keep_alive
-keep_alive()
 # insert your Telegram bot token here
 bot = telebot.TeleBot('8136417496:AAE2xq6Lz0PQUou5KybkOr6S8qlLYirVUy8')
 
@@ -285,7 +282,7 @@ def start_attack_reply(message, target, port, time):
 # Dictionary to store the last time each user ran the /ritik command
 ritik_cooldown = {}
 
-COOLDOWN_TIME =30
+COOLDOWN_TIME =10
 
 # Handler for /ritik command
 @bot.message_handler(commands=['ritik'])
