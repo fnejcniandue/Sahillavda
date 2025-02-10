@@ -5,7 +5,7 @@ import subprocess
 import datetime
 import os
 # insert your Telegram bot token here
-bot = telebot.TeleBot('8136417496:AAE2xq6Lz0PQUou5KybkOr6S8qlLYirVUy8')
+bot = telebot.TeleBot('7594583741:AAHBZ-J2uoMVluvg3pYTgEGTcbNCrbauteQ')
 
 # Admin user IDs
 admin_id = ["6437994839"]
@@ -282,7 +282,7 @@ def start_attack_reply(message, target, port, time):
 # Dictionary to store the last time each user ran the /ritik command
 ritik_cooldown = {}
 
-COOLDOWN_TIME =10
+COOLDOWN_TIME =0
 
 # Handler for /ritik command
 @bot.message_handler(commands=['ritik'])
@@ -304,8 +304,8 @@ def handle_ritik(message):
             target = command[1]
             port = int(command[2])  # Convert port to integer
             time = int(command[3])  # Convert time to integer
-            if time > 80:
-                response = "Error: Time interval must be less than 80."
+            if time > 600:
+                response = "Error: Time interval must be less than 600."
             else:
                 record_command_logs(user_id, '/ritik', target, port, time)
                 log_command(user_id, target, port, time)
@@ -392,7 +392,7 @@ def welcome_plan(message):
     response = f'''{user_name}, Brother Only 1 Plan Is Powerfull Then Any Other Ddos !!:
 
 Vip 🌟 :
--> Attack Time : 80 (S)
+-> Attack Time : 600 (S)
 > After Attack Limit : 10 sec
 -> Concurrents Attack : 5
 
